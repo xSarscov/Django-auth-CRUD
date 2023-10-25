@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 offset-md-4">
+            <form method="post" class="card card-body">
+                <h1 class="text-center text-decoration-underline">Crear tarea</h1>
+                {{error}}
+                {% csrf_token %}
+                {{form}}
+                <button class="btn btn-primary my-3">Save</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

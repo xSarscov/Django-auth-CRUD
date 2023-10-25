@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 offset-md-4">
+            <form method="post" class="card card-body">
+                <h1 class="text-center text-decoration-underline">Sign up</h1>
+                {{error}}
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" id="username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password1">Contraseña</label>
+                    <input type="password" name="password1" class="form-control" placeholder="Contraseña" id="password1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password2">Confirma tu contraseña</label>
+                    <input type="password" name="password2" class="form-control" placeholder="Confirma tu contraseña" id="password2">
+                </div>
+                <button class="btn btn-primary ">Signup</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

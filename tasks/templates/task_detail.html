@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container mt-5">
+  <div class="col-md-4 offset-md-4 card card-body">
+    <h1 class="text-center">{{task.title}}</h1>
+    {{error}}
+    
+    <form action="" method="post">
+      {% csrf_token %} {{form.as_p}}
+      <button class="btn btn-primary">Actualizar tarea</button>
+    </form>
+
+    <div class="d-flex mt-5">
+        <form action="{% url 'complete_task' task.id %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-secondary">Marcar como completada</button>
+          </form>
+      
+          <form action="{% url 'delete_task' task.id %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger">Eliminar tarea</button>
+          </form>
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
